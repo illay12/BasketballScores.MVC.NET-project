@@ -7,7 +7,7 @@ namespace BasketballScores.Migrations
     public partial class AddUserModelToDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
-        {
+        {//
             migrationBuilder.CreateTable(
                 name: "UserModels",
                 columns: table => new
