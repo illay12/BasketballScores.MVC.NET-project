@@ -4,9 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BasketballScores.Models
 {
-    public class UserModel : IdentityUser
+    public class UserMod
     {
-        [Key]
         public int Id { get; set; }
         
         public string username { get; set; }

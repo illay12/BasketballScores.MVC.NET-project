@@ -1,6 +1,8 @@
 using BasketballScores.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
+using BasketballScores.Models;
 
 namespace BasketballScores
 {
@@ -15,6 +17,9 @@ namespace BasketballScores
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
                 builder.Configuration.GetConnectionString("DefaultConnection")
                 ));
+
+                        builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<ApplicationDbContext>();
             //builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             //.AddCookie(option => {
             //    option.LoginPath = "/Access/Login";
@@ -40,6 +45,8 @@ namespace BasketballScores
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            app.MapRazorPages();    
 
             app.MapControllerRoute(
                 name: "default",
