@@ -13,5 +13,5 @@ public class ApplicationDbContext : IdentityDbContext
         
     public DbSet<ScoreBoard> ScoreBoards { get; set; }
 
-    public DbSet<UserMod> Users { get; set; }
+    public DbSet<ApplicationUser> ApplicationUser { get; set; }
 }

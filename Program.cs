@@ -18,7 +18,8 @@ namespace BasketballScores
                 builder.Configuration.GetConnectionString("DefaultConnection")
                 ));
 
-                        builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
+                .AddRoles<IdentityRole>()   
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             //builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             //.AddCookie(option => {
