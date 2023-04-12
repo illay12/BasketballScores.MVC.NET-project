@@ -1,12 +1,16 @@
 ﻿using BasketballScores.Data;
 using BasketballScores.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure;
 using Microsoft.Build.Framework;
 
 namespace BasketballScores.Controllers;
 
+
 public class ScoreBoardController : Controller
 {
+    
     private readonly ApplicationDbContext _db;
 
     public ScoreBoardController(ApplicationDbContext db)
@@ -18,8 +22,9 @@ public class ScoreBoardController : Controller
         IEnumerable<ScoreBoard> objScoreBoardList = _db.ScoreBoards;
         return View(objScoreBoardList);
     }
-    
+
     //GET
+    [Authorize(Roles = "Admin")]
     public IActionResult Create()
     {
         return View();
@@ -28,8 +33,10 @@ public class ScoreBoardController : Controller
     //POST
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Admin")]
     public IActionResult Create(ScoreBoard obj)
     {
+        
         if (ModelState.IsValid)
         {
             _db.ScoreBoards.Add(obj);

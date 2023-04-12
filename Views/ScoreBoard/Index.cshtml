@@ -4,14 +4,18 @@
     ViewData["Title"] = "Index";
 }
 
+@*<br />
+<br />
+<div class="text-center"><h1 style="color:white">Basketball &nbsp Scores</h1></div>
 
-<div class="text-center"><h1>Basketball &nbsp Scores</h1></div>
-
+*@
  
-<div class="bg-image"
-     style="background-image: url('https://images.pexels.com/photos/1331750/pexels-photo-1331750.jpeg');
+<@*div class="bg-image"
+     style="background-image: url('https://images.pexels.com/photos/273786/pexels-photo-273786.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1://images.pexels.com/photos/1331750/pexels-photo-1331750.jpeg');
             background-size = cover;
-            height>
+            height: 100vh;">
+*@
+    
 
 <div class="container p-3">
     <div class="row pt-4">
@@ -46,7 +50,7 @@
     <tbody>
         @foreach(var obj in Model)
         {
-            <tr>
+            <tr class="table-primary">
                 <td width="20%" class="text-center">
                     @obj.TeamName1
                 </td>
@@ -69,4 +73,4 @@
 </table>
 
 </div>
-</div>
+
