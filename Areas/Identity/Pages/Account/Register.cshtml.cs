@@ -21,6 +21,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using static System.Collections.Specialized.BitVector32;
 
 namespace BasketballScores.Areas.Identity.Pages.Account
 {
@@ -101,7 +102,7 @@ namespace BasketballScores.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 5)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
@@ -184,6 +185,8 @@ namespace BasketballScores.Areas.Identity.Pages.Account
                         return LocalRedirect(returnUrl);
                     }
                 }
+                else OnGetAsync();
+                  
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
@@ -218,3 +221,4 @@ namespace BasketballScores.Areas.Identity.Pages.Account
         }
     }
 }
+

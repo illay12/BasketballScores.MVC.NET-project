@@ -39,8 +39,9 @@ public class ScoreBoardController : Controller
         
         if (ModelState.IsValid)
         {
-            _db.ScoreBoards.Add(obj);
+            _db.ScoreBoards.Add(obj); 
             _db.SaveChanges();
+            TempData["success"] = "Succesufully added new game score!";
             return RedirectToAction("Index");
         }
         return View(obj);
