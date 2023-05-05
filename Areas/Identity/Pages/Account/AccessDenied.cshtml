@@ -4,7 +4,30 @@
     ViewData["Title"] = "Access denied";
 }
 
-<header style="background-color:darkgrey">
-    <h1 class="text-danger">@ViewData["Title"]</h1>
-    <p class="text-danger">You do not have access to this resource.</p>
-</header>
+<br />
+<br />
+<br />
+<br />
+
+
+<div class="col-md-4" style="background-color:black">
+    <hr />
+    <h1 class="text" style="color:white">&nbsp @ViewData["Title"]</h1>
+    <p class="text" style="color:white">&nbsp You must be an admin in order to add/edit &nbsp &nbsp &nbsp game scores.</p>
+    <hr />
+
+</div>
+<a asp-area="Identity" asp-page="/Account/Login" class="btn btn-primary style="width:150px">
+    Sign in
+</a>
+
+<a asp-controller="Scoreboard" asp-action="Index" class="btn btn-warning style="width:150px">
+    Return to ScoreBoard
+</a>
+
+<br />
+<br />
+<br />
+<br />
+
+<partial name="_Notifications" />

@@ -160,7 +160,7 @@ namespace BasketballScores.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-
+                    TempData["success"] = "Your account was succesufully created";
                     await _userManager.AddToRoleAsync(user, Input.Role);
 
                     var userId = await _userManager.GetUserIdAsync(user);

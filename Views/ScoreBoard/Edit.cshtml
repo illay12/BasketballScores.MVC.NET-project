@@ -1,10 +1,10 @@
 ﻿@model ScoreBoard
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
-<form method="post">
+<form method="post" asp-action="Edit">
     <br />
     <br />
     <br />
@@ -13,7 +13,7 @@
         <div class="border p-3 mt-4" >
         
             <div class="row pb-2">
-                <h2 style="color:white"><strong>Add New Game Score</strong></h2>
+                <h2 style="color:white"><strong>Edit Game Score</strong></h2>
                 <hr />
             </div>
             @*<div asp-validation-summary="All"></div>*@
@@ -42,7 +42,7 @@
                 <input asp-for="PlayTime" class="form-control" />
                 <span asp-validation-for="PlayTime" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-outline-light" style="width:150px">Add</button>
+            <button type="submit" class="btn btn-outline-light" style="width:150px">Update</button>
             <a asp-controller="Scoreboard" asp-action="Index" class="btn btn-outline-warning style="width:150px">
                 Back to Scoreboard
             </a>

@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BasketballScores.Areas.Identity.Pages.Account
 {
@@ -115,7 +116,9 @@ namespace BasketballScores.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                     
                     _logger.LogInformation("User logged in.");
+                    TempData["success"] = "Succesufully Logged In";
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
@@ -130,6 +133,7 @@ namespace BasketballScores.Areas.Identity.Pages.Account
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    TempData["error"] = "Invalid Login Attempt";
                     return Page();
                 }
             }

@@ -30,6 +30,7 @@ namespace BasketballScores.Areas.Identity.Pages.Account
             _logger.LogInformation("User logged out.");
             if (returnUrl != null)
             {
+                TempData["success"] = "Succesufully Logged Out";
                 return LocalRedirect(returnUrl);
             }
             else
